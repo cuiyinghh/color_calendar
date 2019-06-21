@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>美色日历</title>
+  <link href="./index.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script> 
+    // 移动端rem适配
+    !function (global) {
+      var window = global || this,
+        width = 750,
+        docEl = window.document.documentElement,
+        dpr = window.devicePixelRatio || 1,
+        resizeEvt = 'resize',
+        resizeCall = (function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) {
+            docEl.style.fontSize = 100 + 'px';
+          } else {
+            docEl.style.fontSize = 100 * (clientWidth / parseInt(width)) + 'px';
+          }
+          return arguments.callee;
+        })();
+
+        dpr = dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 ;
+        docEl.setAttribute('data-dpr', dpr);
+
+      window.addEventListener && window.addEventListener(resizeEvt, resizeCall, false);
+    }(this);
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="top-wrap">
+        <div class="day">{{today.getDate()}}</div>
+        <div class="line line1 js-line"></div>
+        <div class="line line2 js-line"></div>
+        <div class="color js-color">{{colorArr[randomIndex].name}}</div>
+        <div class="month">{{numToMonth[today.getMonth()]}}月</div>
+        <div class="week">星期{{numToWeek[today.getDay()]}}</div>
+    </div>
+    <div class="bottom-wrap">
+      <ul class="weekdays">
+        <li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li><li>日</li>
+      </ul>
+      <ul class="days">
+        <li v-for="(day, index) in days" :class="[(day.getMonth() != today.getMonth())?'other-month':'',(Date.parse(day) < Date.parse(today))?'oldday':'',(Date.parse(day) == Date.parse(today))?'today js-today':'']">
+          <span class="days-num">{{ day.getDate()}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

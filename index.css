@@ -1,0 +1,119 @@
+/*样式reset start*/
+* {
+  margin: 0;
+  padding: 0;
+  font-size: .32rem;
+}
+
+ul {
+  list-style:none;
+}
+/*样式reset end*/
+
+/*上方信息 start*/
+.top-wrap {
+  position: relative;
+  height: 7.5rem;
+  overflow: hidden;
+}
+
+.day {
+  position: absolute;
+  top: 0; 
+  right: 0;
+  font-size: 3rem;
+}
+
+.line {
+  position: absolute;
+  height: 1px;
+  width: 10.6rem;
+  background: #bbb;
+  transform: rotate(45deg);
+  
+}
+
+.line1 {
+  left: -1.4rem;
+  top: 3.7rem;
+}
+
+.line2 {
+  left: -1.5rem;
+  top: 3.7rem;
+}
+
+.color {
+  position: absolute;
+  bottom: 0;
+  left: .55rem;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.4rem;
+}
+
+.month {
+  font-size: .4rem;
+  padding: 2.1rem 0 0 .55rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.week {
+  font-size: .4rem;
+  padding: .1rem 0 0 .55rem;
+  color: #333;
+  font-weight: bold;
+}
+/*上方信息 end*/
+
+
+/*下方日历 start*/
+.bottom-wrap {
+  width: 100%;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 .25rem;
+  line-height: 1rem;
+}
+
+.weekdays li {
+  width: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 .25rem;
+}
+
+.days li {
+  width: 1rem;
+  text-align: center;
+  line-height: 0.54rem;
+}
+
+.days li .days-num {
+  display: inline-block;
+  width: 0.54rem;
+  height: 0.54rem;
+  border-radius: 100%; 
+}
+
+.today {
+  background: #ddd;
+  color: #fff;
+  font-weight: bold;
+  border-radius: .4rem;
+}
+
+.other-month {
+  color: #999;
+}
+/*下方日历 end*/
